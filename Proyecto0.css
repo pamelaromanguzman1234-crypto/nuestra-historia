@@ -1,0 +1,402 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image: url("fondo1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* TÍTULO */
+
+.titulo {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin-top: 30px;
+
+    text-shadow:
+        0 0 5px #ff1493,
+        0 0 10px #ff1493,
+        0 0 20px #ff1493,
+        0 0 40px #ff1493;
+}
+
+.historia {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 25px;
+
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+
+    text-shadow: 0 2px 5px black;
+}
+
+img {
+    width: 85%;
+    max-width: 350px;
+    height: auto;
+
+    display: block;
+    margin: 35px auto 15px;
+
+    border-radius: 18px;
+
+    border: 3px solid #ff69b4;
+
+    box-shadow:
+        0 0 10px #ff69b4,
+        0 0 25px #ff1493,
+        0 0 40px rgba(255, 20, 147, 0.7);
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.5;
+
+    max-width: 350px;
+    margin: 15px auto 40px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px #ff69b4,
+        0 0 10px #ff1493;
+}
+/* Espacio entre cada recuerdo */
+img {
+    margin-top: 45px;
+    margin-bottom: 10px;
+}
+
+/* Frases debajo de las fotos */
+h1 {
+    margin-top: 15px;
+    margin-bottom: 45px;
+}
+
+.final {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.final button {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    box-shadow: 0 0 15px #ff69b4;
+}
+
+.final button:active {
+    transform: scale(0.95);
+}
+
+#mensajeFinal {
+    display: none;
+    margin-top: 40px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:
+        0 0 10px #ff1493,
+        0 0 25px #ff69b4;
+}
+
+
+
+/* ============================= */
+/* EFECTO CINEMATOGRÁFICO ❤️ */
+/* ============================= */
+
+#cinema {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,20,147,0.25),
+            rgba(0,0,0,0.90)
+        );
+
+    z-index: 20000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 2s ease;
+}
+
+#cinema.activa {
+    opacity: 1;
+}
+
+
+/* FOTOS */
+
+img.fotoCine {
+
+    position: relative;
+
+    z-index: 20001;
+
+    animation:
+        fotoCinematica 3s ease-in-out forwards;
+
+}
+
+
+@keyframes fotoCinematica {
+
+    0% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+        filter:
+            brightness(1)
+            blur(0);
+
+    }
+
+    45% {
+
+        transform:
+            translate(var(--x),var(--y))
+            scale(1.08);
+
+        filter:
+            brightness(1.3)
+            blur(0);
+
+        box-shadow:
+            0 0 20px #ff69b4,
+            0 0 50px #ff1493;
+
+    }
+
+    100% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+        filter:
+            brightness(1)
+            blur(0);
+
+    }
+
+}
+
+
+/* FRASES */
+
+#fraseCine {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(0.7);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: white;
+
+    z-index: 25000;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 30px #ff1493,
+        0 0 60px #ff1493;
+}
+
+#fraseCine span {
+
+    display: block;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    margin-bottom: 15px;
+
+}
+
+#fraseCine strong {
+
+    display: block;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+}
+
+
+#fraseCine.mostrar {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
+}
+
+
+/* CORAZONES / PARTÍCULAS */
+
+.particula {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 24000;
+
+    pointer-events: none;
+
+    animation:
+        subirParticula
+        5s ease-out forwards;
+
+    filter:
+        drop-shadow(0 0 8px #ff69b4);
+
+}
+
+
+@keyframes subirParticula {
+
+    0% {
+
+        transform:
+            translate(0,0)
+            scale(0.3)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            translate(var(--lado),-50vh)
+            scale(1.2)
+            rotate(180deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(calc(var(--lado) * -1),-110vh)
+            scale(1.5)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* FINAL */
+
+.finalCine {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(0.5);
+
+    width: 90%;
+
+    z-index: 30000;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: white;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal
+        2s ease forwards;
+
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 30px #ff1493,
+        0 0 60px #ff1493;
+
+}
+
+
+@keyframes aparecerFinal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(0.5);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+}
